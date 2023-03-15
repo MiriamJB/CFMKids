@@ -72,8 +72,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     Container(
+                      
                       height: MediaQuery.of(context).size.height / 3,
-                      decoration: const BoxDecoration(
+                      decoration: const BoxDecoration(color: Colors.black,
                           image: DecorationImage(
                               image: AssetImage('assets/logo-v1.png'))),
                     ),
