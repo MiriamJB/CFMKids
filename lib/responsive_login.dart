@@ -1,8 +1,8 @@
-import 'package:cfmkids/login.dart';
+import 'package:cfmkids/widgets/loginW.dart';
+import 'package:cfmkids/widgets/signUpW.dart';
 import 'package:flutter/material.dart';
 
-import 'main.dart';
-import 'signup.dart';
+import 'screens/homePage.dart';
 
 class Responsive extends StatefulWidget {
   const Responsive({super.key, required String title});
@@ -44,12 +44,11 @@ class _ResponsiveState extends State<Responsive> {
                 child: Container(
                   width: screenW - 350,
                   height: screenH - 100,
-                  color: Color.fromARGB(255, 22, 213, 98),
+                  color: const Color.fromARGB(255, 22, 213, 98),
                   child: Row(
                     children: [
                       Expanded(
-                        child: Container(
-                           child: Text("$screenW")),
+                        child: Container(child: Text("$screenW")),
                       ),
                       Expanded(
                           child: Container(
@@ -73,26 +72,21 @@ class _ResponsiveState extends State<Responsive> {
             } else {
               return Center(
                 child: Container(
-                  color: Colors.amber,
-                  width: 1200,
-                  height: screenH - 100,
-                  child: Row(
-                    children: [
+                    color: Colors.amber,
+                    width: 1200,
+                    height: screenH - 100,
+                    child: Row(children: [
                       Expanded(
-                        child: Container(
-                          color: Colors.purple,
-                          child: const SignupPage(),
-                        )
-                      ),
+                          child: Container(
+                        color: Colors.purple,
+                        child: const SignupWid(),
+                      )),
                       Expanded(
-                        child: Container(
-                          color: Colors.blue,
-                          child: const LoginPage(),
-                        )
-                      )
-                    ]
-                  )
-                ),
+                          child: Container(
+                        color: Colors.blue,
+                        child: const LoginWid(),
+                      ))
+                    ])),
               );
             }
           },
