@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
-class MyWidget extends StatelessWidget {
+// ignore: must_be_immutable
+class MakeInput extends StatelessWidget {
   String label;
   bool obscureText;
 
-  MyWidget(this.label, this.obscureText);
+  MakeInput({super.key, required this.label, required this.obscureText});
 
   @override
   Widget build(context) {

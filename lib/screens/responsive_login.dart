@@ -2,7 +2,7 @@ import 'package:cfmkids/widgets/loginW.dart';
 import 'package:cfmkids/widgets/signUpW.dart';
 import 'package:flutter/material.dart';
 
-import 'screens/homePage.dart';
+import 'homePage.dart';
 
 class Responsive extends StatefulWidget {
   const Responsive({super.key, required String title});
@@ -48,7 +48,7 @@ class _ResponsiveState extends State<Responsive> {
                   child: Row(
                     children: [
                       Expanded(
-                        child: Container(child: Text("$screenW")),
+                        child: Text("$screenW"),
                       ),
                       Expanded(
                           child: Container(
@@ -75,17 +75,9 @@ class _ResponsiveState extends State<Responsive> {
                     color: Colors.amber,
                     width: 1200,
                     height: screenH - 100,
-                    child: Row(children: [
-                      Expanded(
-                          child: Container(
-                        color: Colors.purple,
-                        child: const SignupWid(),
-                      )),
-                      Expanded(
-                          child: Container(
-                        color: Colors.blue,
-                        child: const LoginWid(),
-                      ))
+                    child: Row(children: const <Widget>[
+                      Expanded(child: SignupWid()),
+                      Expanded(child: LoginWid())
                     ])),
               );
             }
