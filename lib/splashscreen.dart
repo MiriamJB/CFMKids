@@ -1,5 +1,6 @@
-import 'package:cfmkids/main.dart';
 import 'package:flutter/material.dart';
+
+import 'responsive_login.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -16,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
         context,
         MaterialPageRoute(
             builder: (context) =>
-                const MyHomePage(title: 'Flutter Demo Home Page')),
+                const Responsive(title: 'Flutter Demo Home Page')),
       );
     });
   }

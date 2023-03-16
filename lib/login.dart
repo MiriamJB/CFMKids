@@ -9,7 +9,7 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
         resizeToAvoidBottomInset: false,
         backgroundColor: Colors.transparent,
-        //TODO: fix the appbar button exhibition - it has to be on top of the container below it
+        // fix the appbar button exhibition - it has to be on top of the container below it
         appBar: AppBar(
           elevation: 0,
           backgroundColor: Colors.white,

@@ -8,8 +8,8 @@ class SignupPage extends StatelessWidget {
     return Scaffold(
         resizeToAvoidBottomInset: false,
         backgroundColor: Colors.transparent,
-        //TODO: fix the appbar button exhibition - it has to be on top of the container below it
-        //TODO: fix the visualization - keyboard covering 'Confirm Password' field
+        // fix the appbar button exhibition - it has to be on top of the container below it
+        // fix the visualization - keyboard covering 'Confirm Password' field
         appBar: AppBar(
           elevation: 0,
           backgroundColor: Colors.white,
