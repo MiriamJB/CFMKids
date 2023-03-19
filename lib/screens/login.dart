@@ -25,6 +25,7 @@ class LoginPage extends StatelessWidget {
             ),
           ),
         ),
-        body: const LoginWid());
+        body: const LoginWid(),
+        );
   }
 }

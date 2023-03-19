@@ -1,8 +1,8 @@
-import 'package:cfmkids/screens/signup.dart';
 import 'package:cfmkids/widgets/loginW.dart';
 import 'package:cfmkids/widgets/signUpW.dart';
 import 'package:flutter/material.dart';
 
+import '../widgets/changeSize.dart';
 import 'homePage.dart';
 
 class Responsive extends StatefulWidget {
@@ -40,32 +40,34 @@ class _ResponsiveState extends State<Responsive> {
                 child: MyHomePage(title: 'Flutter Demo Home Page'),
               );
             } else if (ancho.maxWidth < 950) {
+              // return
               return Center(
                 child: Container(
                   color: Colors.yellow,
                   width: screenW - 250,
                   height: screenH - 100,
-                  // child: const MyHomePage(title: 'Flutter Demo Home Page'),
-                  child: Column(children: [
-                    Flexible(
-                      flex: _isExpandedFlex ? 1 : 8,
-                      child:
-                          Container(
-                            color: Colors.blueGrey, 
-                            child: const SignupWid()),
-                    ),
+                  padding: EdgeInsets.all(16),
+                  child: const ChangeSize(),
+                  // child: Column(children: [
+                  //   Flexible(
+                  //     flex: _isExpandedFlex ? 1 : 8,
+                  //     child:
+                  //         Container(
+                  //           color: Colors.blueGrey,
+                  //           child: const SignupWid()),
+                  //   ),
 
-                    GestureDetector(
-                      onTap: _swapExpandedFlex,
-                      child: Flexible(
-                          flex: _isExpandedFlex ? 8 : 1,
-                          child: Container(
-                            color: Colors.red,
-                            child: const Text("hola"),
-        
-                          )),
-                    )
-                  ]),
+                  //   GestureDetector(
+                  //     onTap: _swapExpandedFlex,
+                  //     child: Flexible(
+                  //         flex: _isExpandedFlex ? 8 : 1,
+                  //         child: Container(
+                  //           color: Colors.red,
+                  //           child: const Text("hola"),
+
+                  //         )),
+                  //   )
+                  // ]),
                 ),
               );
             } else if (ancho.maxWidth < 1200) {
