@@ -1,3 +1,4 @@
+import 'package:cfmkids/screens/signup.dart';
 import 'package:cfmkids/widgets/loginW.dart';
 import 'package:cfmkids/widgets/signUpW.dart';
 import 'package:flutter/material.dart';
@@ -12,10 +13,19 @@ class Responsive extends StatefulWidget {
 }
 
 class _ResponsiveState extends State<Responsive> {
+  bool _isExpandedFlex = false;
+
+  void _swapExpandedFlex() {
+    setState(() {
+      _isExpandedFlex = !_isExpandedFlex;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final screenW = MediaQuery.of(context).size.width;
     final screenH = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
@@ -25,7 +35,7 @@ class _ResponsiveState extends State<Responsive> {
         )),
         child: LayoutBuilder(
           builder: (context, ancho) {
-            if (ancho.maxWidth < 600) {
+            if (ancho.maxWidth < 650) {
               return const Center(
                 child: MyHomePage(title: 'Flutter Demo Home Page'),
               );
@@ -36,7 +46,26 @@ class _ResponsiveState extends State<Responsive> {
                   width: screenW - 250,
                   height: screenH - 100,
                   // child: const MyHomePage(title: 'Flutter Demo Home Page'),
-                  child: Text("$screenW"),
+                  child: Column(children: [
+                    Flexible(
+                      flex: _isExpandedFlex ? 1 : 8,
+                      child:
+                          Container(
+                            color: Colors.blueGrey, 
+                            child: const SignupWid()),
+                    ),
+
+                    GestureDetector(
+                      onTap: _swapExpandedFlex,
+                      child: Flexible(
+                          flex: _isExpandedFlex ? 8 : 1,
+                          child: Container(
+                            color: Colors.red,
+                            child: Text("hola perro"),
+        
+                          )),
+                    )
+                  ]),
                 ),
               );
             } else if (ancho.maxWidth < 1200) {
@@ -46,14 +75,11 @@ class _ResponsiveState extends State<Responsive> {
                   height: screenH - 100,
                   color: const Color.fromARGB(255, 22, 213, 98),
                   child: Row(
-                    children: [
+                    children: const [
                       Expanded(
-                        child: Text("$screenW"),
+                        child: SignupWid(),
                       ),
-                      Expanded(
-                          child: Container(
-                        color: Colors.red,
-                      )),
+                      Expanded(child: LoginWid()),
                     ],
                   ),
                 ),
