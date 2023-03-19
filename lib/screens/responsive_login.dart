@@ -61,7 +61,7 @@ class _ResponsiveState extends State<Responsive> {
                           flex: _isExpandedFlex ? 8 : 1,
                           child: Container(
                             color: Colors.red,
-                            child: Text("hola perro"),
+                            child: const Text("hola"),
         
                           )),
                     )
