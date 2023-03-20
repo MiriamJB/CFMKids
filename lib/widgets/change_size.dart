@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'loginW.dart';
-import 'signUpW.dart';
+import 'login_w.dart';
+import 'sign_up_w.dart';
 
 class ChangeSize extends StatefulWidget {
   const ChangeSize({super.key});

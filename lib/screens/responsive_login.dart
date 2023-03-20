@@ -1,9 +1,9 @@
-import 'package:cfmkids/widgets/loginW.dart';
-import 'package:cfmkids/widgets/signUpW.dart';
+import 'package:cfmkids/widgets/login_w.dart';
+import 'package:cfmkids/widgets/sign_up_w.dart';
 import 'package:flutter/material.dart';
 
-import '../widgets/changeSize.dart';
-import 'homePage.dart';
+import '../widgets/change_size.dart';
+import 'home_page.dart';
 
 class Responsive extends StatefulWidget {
   const Responsive({super.key, required String title});
@@ -13,13 +13,6 @@ class Responsive extends StatefulWidget {
 }
 
 class _ResponsiveState extends State<Responsive> {
-  bool _isExpandedFlex = false;
-
-  void _swapExpandedFlex() {
-    setState(() {
-      _isExpandedFlex = !_isExpandedFlex;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,32 +41,7 @@ class _ResponsiveState extends State<Responsive> {
                   height: screenH - 100,
                   // padding: EdgeInsets.all(16),
                   child: const ChangeSize(),
-                  // child: Column(children: [
-                  //   Flexible(
-                  //     flex: _isExpandedFlex ? 1 : 8,
-                  //     child:
-                  //         Container(
-                  //           color: Colors.blueGrey,
-                  //           child: const SignupWid()),
-                  //   ),
-
-                  //   GestureDetector(
-                  //     onTap: _swapExpandedFlex,
-                  //     child: Flexible(
-                  //         flex: _isExpandedFlex ? 8 : 1,
-                  //         child: Container(
-                  //           color: Colors.red,
-                  //           child: const Text("hola"),
-
-                  //         )),
-                  //   )
-                  // ]),
                 ),
-
-
-
-
-
               );
             } else if (ancho.maxWidth < 1200) {
               return Center(

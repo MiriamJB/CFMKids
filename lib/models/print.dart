@@ -121,7 +121,7 @@ class _MyPrintHomePageState extends State<MyPrintHomePage> {
         ));
   }
 
-  /// Convert a Pdf to images, one image per page, get only pages 1 and 2 at 72 dpi
+  // Convert a Pdf to images, one image per page, get only pages 1 and 2 at 72 dpi
   void _convertPdfToImages(pw.Document doc) async {
     await for (var page
         in Printing.raster(await doc.save(), pages: [0, 1], dpi: 72)) {
@@ -130,14 +130,14 @@ class _MyPrintHomePageState extends State<MyPrintHomePage> {
     }
   }
 
-  /// print an existing Pdf file from a Flutter asset
+  // print an existing Pdf file from a Flutter asset
   void _printExistingPdf() async {
     // import 'package:flutter/services.dart';
     final pdf = await rootBundle.load('assets/document.pdf');
     await Printing.layoutPdf(onLayout: (_) => pdf.buffer.asUint8List());
   }
 
-  /// more advanced PDF styling
+  // more advanced PDF styling
   Future<Uint8List> _generatePdf(PdfPageFormat format, String title) async {
     final pdf = pw.Document(version: PdfVersion.pdf_1_5, compress: true);
     final font = await PdfGoogleFonts.nunitoExtraLight();
