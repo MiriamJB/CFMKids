@@ -1,8 +1,8 @@
-import 'package:cfmkids/login.dart';
 import 'package:cfmkids/main.dart';
 import 'package:flutter/material.dart';
-import 'package:cfmkids/signup.dart';
-import 'package:cfmkids/settings.dart';
+import 'package:cfmkids/screens/settings.dart';
+
+import 'login.dart';
 
 
 class MainPage extends MaterialPageRoute<void> {

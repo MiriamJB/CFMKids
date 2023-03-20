@@ -1,7 +1,7 @@
-import 'package:cfmkids/login.dart';
 import 'package:cfmkids/main.dart';
 import 'package:flutter/material.dart';
-import 'package:cfmkids/signup.dart';
+
+import 'login.dart';
 
 class Settings extends MaterialPageRoute<void> {
   final BuildContext mainContext;
