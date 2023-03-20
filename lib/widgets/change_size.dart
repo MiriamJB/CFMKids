@@ -46,6 +46,7 @@ class _ChangeSizeState extends State<ChangeSize> {
                 isExpanded: _isExpanded1,
               ),
               ExpansionPanel(
+                
                 canTapOnHeader: true,
                 headerBuilder: (BuildContext context, bool isExpanded) {
                   return const ListTile(
