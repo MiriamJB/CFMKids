@@ -46,7 +46,7 @@ class _ResponsiveState extends State<Responsive> {
                   color: Colors.yellow,
                   width: screenW - 250,
                   height: screenH - 100,
-                  padding: EdgeInsets.all(16),
+                  // padding: EdgeInsets.all(16),
                   child: const ChangeSize(),
                   // child: Column(children: [
                   //   Flexible(
@@ -69,6 +69,11 @@ class _ResponsiveState extends State<Responsive> {
                   //   )
                   // ]),
                 ),
+
+
+
+
+
               );
             } else if (ancho.maxWidth < 1200) {
               return Center(
