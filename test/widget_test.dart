@@ -1,13 +1,13 @@
+import 'package:cfmkids/screens/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:cfmkids/main.dart';
 
-// TODO: Add test cases for Sign up button
-// TODO: Add test cases to see if images displayed correctly
-// TODO: Add test cases to see if the layout is centered and correctly displaying padding and spacing
-// TODO: Add test cases to verify colors and texts for buttons
-// TODO: Add test cases to verify the app against different screen sizes and orientations
+// Add test cases for Sign up button
+// Add test cases to see if images displayed correctly
+// Add test cases to see if the layout is centered and correctly displaying padding and spacing
+// Add test cases to verify colors and texts for buttons
+// Add test cases to verify the app against different screen sizes and orientations
 
 void main() {
   testWidgets('Login button test', (WidgetTester tester) async {

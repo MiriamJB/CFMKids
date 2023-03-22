@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors
-// TODO: implement colors on other files or create a test case to make sure it works.
-// TODO: link methods to buttons or create a test case to make sure it works.
+// implement colors on other files or create a test case to make sure it works.
+// link methods to buttons or create a test case to make sure it works.
 
 import 'package:flutter/material.dart';
 

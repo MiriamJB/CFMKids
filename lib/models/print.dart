@@ -1,5 +1,3 @@
-// ignore_for_file: depend_on_referenced_package
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -7,7 +5,6 @@ import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
 
-import 'mainpage.dart';
 
 class Print extends StatelessWidget {
   const Print({super.key});
@@ -45,20 +42,20 @@ class _MyPrintHomePageState extends State<MyPrintHomePage> {
           children: [
             ElevatedButton(
               onPressed: _createPdf,
-              child: Text(
+              child: const Text(
                 'Create & Print PDF',
               ),
             ),
-            SizedBox(
+             const SizedBox(
               height: 20,
             ),
             ElevatedButton(
               onPressed: _displayPdf,
-              child: Text(
+              child: const Text(
                 'Display PDF',
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
           ],
@@ -109,7 +106,7 @@ class _MyPrintHomePageState extends State<MyPrintHomePage> {
           return pw.Center(
             child: pw.Text(
               'Hello world',
-              style: pw.TextStyle(fontSize: 30),
+              style: const pw.TextStyle(fontSize: 30),
             ),
           );
         },
@@ -124,7 +121,7 @@ class _MyPrintHomePageState extends State<MyPrintHomePage> {
         ));
   }
 
-  /// Convert a Pdf to images, one image per page, get only pages 1 and 2 at 72 dpi
+  // Convert a Pdf to images, one image per page, get only pages 1 and 2 at 72 dpi
   void _convertPdfToImages(pw.Document doc) async {
     await for (var page
         in Printing.raster(await doc.save(), pages: [0, 1], dpi: 72)) {
@@ -133,14 +130,14 @@ class _MyPrintHomePageState extends State<MyPrintHomePage> {
     }
   }
 
-  /// print an existing Pdf file from a Flutter asset
+  // print an existing Pdf file from a Flutter asset
   void _printExistingPdf() async {
     // import 'package:flutter/services.dart';
     final pdf = await rootBundle.load('assets/document.pdf');
     await Printing.layoutPdf(onLayout: (_) => pdf.buffer.asUint8List());
   }
 
-  /// more advanced PDF styling
+  // more advanced PDF styling
   Future<Uint8List> _generatePdf(PdfPageFormat format, String title) async {
     final pdf = pw.Document(version: PdfVersion.pdf_1_5, compress: true);
     final font = await PdfGoogleFonts.nunitoExtraLight();
@@ -187,10 +184,10 @@ class PreviewScreen extends StatelessWidget {
       appBar: AppBar(
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
-          icon: Icon(Icons.arrow_back_outlined),
+          icon: const Icon(Icons.arrow_back_outlined),
         ),
         centerTitle: true,
-        title: Text("Preview"),
+        title: const Text("Preview"),
       ),
       body: PdfPreview(
         build: (format) => doc.save(),
