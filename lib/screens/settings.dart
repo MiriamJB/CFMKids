@@ -12,7 +12,7 @@ class Settings extends MaterialPageRoute<void> {
               title: const Text('Main Page'),
               actions: <Widget>[
                 PopupMenuButton<String>(
-                  icon: Icon(Icons.more_vert),
+                  icon: const Icon(Icons.more_vert),
                   onSelected: (value) => handleClick(value, mainContext),
                   itemBuilder: (BuildContext context) {
                     return {'Logout', 'Settings'}.map((String choice) {
@@ -69,6 +69,18 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    return NavigationBar(destinations: const [
+      NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
+      NavigationDestination(icon: Icon(Icons.search), label: 'Search'),
+      NavigationDestination(icon: Icon(Icons.share), label: 'Share'),
+      NavigationDestination(
+          icon: Icon(Icons.notifications), label: 'Notifications'),
+      NavigationDestination(icon: Icon(Icons.settings), label: 'Settings'),
+    ]);
+  }
+
+  @override
+  Widget build2(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[

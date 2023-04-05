@@ -42,6 +42,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_dotenv: ^5.0.2
   pdf: ^3.8.4
+  babstrap_settings_screen: ^0.1.5+1
 
 dev_dependencies:
   flutter_config: ^1.0.5

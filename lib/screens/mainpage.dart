@@ -1,9 +1,6 @@
-import 'package:cfmkids/main.dart';
+import 'package:cfmkids/screens/settings_page.dart';
 import 'package:flutter/material.dart';
-import 'package:cfmkids/screens/settings.dart';
-
 import 'login.dart';
-
 
 class MainPage extends MaterialPageRoute<void> {
   final BuildContext mainContext;
@@ -14,7 +11,7 @@ class MainPage extends MaterialPageRoute<void> {
               title: const Text('Main Page'),
               actions: <Widget>[
                 PopupMenuButton<String>(
-                  icon: Icon(Icons.more_vert),
+                  icon: const Icon(Icons.more_vert),
                   onSelected: (value) => handleClick(value, mainContext),
                   itemBuilder: (BuildContext context) {
                     return {'Logout', 'Settings', 'Print'}.map((String choice) {
@@ -89,50 +86,66 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: GridView.count(
-          crossAxisCount: 3,
-          crossAxisSpacing: 8.0,
-          mainAxisSpacing: 8.0,
-          children: List.generate(6, (index) {
-            return InkWell(
-              onTap: () {
-                onGridTapped(index);
-              },
-              child: AnimatedContainer(
-                duration: const Duration(milliseconds: 200),
-                curve: Curves.easeInOut,
-                decoration: BoxDecoration(
-                  color: index == _selectedGridIndex
-                      ? Colors.lightBlue
-                      : Colors.grey[300],
-                  borderRadius: const BorderRadius.all(Radius.circular(10.0)),
-                ),
-                child: Center(
-                  child: Text(months[index]),
-                ),
-              ),
-            );
-          }),
+        bottomNavigationBar: NavigationBar(
+          destinations: const [
+            NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
+            NavigationDestination(icon: Icon(Icons.search), label: 'Search'),
+            NavigationDestination(icon: Icon(Icons.share), label: 'Share'),
+            NavigationDestination(
+                icon: Icon(Icons.notifications), label: 'Notifications'),
+            NavigationDestination(
+                icon: Icon(Icons.settings), label: 'Settings'),
+          ],
+          selectedIndex: _selectedIndex,
+          onDestinationSelected: (int index) {
+            setState(() {
+              _selectedIndex = index;
+            });
+          },
+          //backgroundColor: Colors.transparent,
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
-          BottomNavigationBarItem(icon: Icon(Icons.share), label: 'Share'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.notifications), label: 'Notification'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.settings), label: 'Settings'),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.lightBlue,
-        unselectedItemColor: Colors.grey,
-        type: BottomNavigationBarType.fixed,
-        onTap: onTapped,
-      ),
-    );
+        //this body section contains all the pages that the navbar will toggle between
+        body: <Widget>[
+          //homepage
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: GridView.count(
+              crossAxisCount: 3,
+              crossAxisSpacing: 8.0,
+              mainAxisSpacing: 8.0,
+              children: List.generate(6, (index) {
+                return InkWell(
+                  onTap: () {
+                    onGridTapped(index);
+                  },
+                  child: AnimatedContainer(
+                    duration: const Duration(milliseconds: 200),
+                    curve: Curves.easeInOut,
+                    decoration: BoxDecoration(
+                      color: index == _selectedGridIndex
+                          ? Colors.lightBlue
+                          : Colors.grey[300],
+                      borderRadius:
+                          const BorderRadius.all(Radius.circular(10.0)),
+                    ),
+                    child: Center(
+                      child: Text(months[index]),
+                    ),
+                  ),
+                );
+              }),
+            ),
+          ),
+          Container(
+              //search
+              ),
+          Container(
+              //share
+              ),
+          Container(
+              //notifications
+              ),
+          const SettingsPage(),
+        ][_selectedIndex]);
   }
 }
